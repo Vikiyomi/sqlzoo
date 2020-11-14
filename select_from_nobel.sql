@@ -31,11 +31,24 @@
   where (subject='Physics' and yr = 1980) 
   or (subject='Chemistry'and yr = 1984)
 --10	Exclude Chemists and Medics
+  select yr, subject, winner from nobel
+  where yr = 1980 and subject not in ('Chemistry','Medicine')
 --11	Early Medicine, Late Literature
-    select yr, subject, winner from nobel
-    where (subject = 'Medicine' and yr<1910) or (subject='Literature' and yr>=2004)
+  select yr, subject, winner from nobel
+  where (subject = 'Medicine' and yr<1910) or (subject='Literature' and yr>=2004)
 --12	Harder Questions
 --13	Umlaut
+  select * from nobel
+  where winner= 'PETER GRÜNBERG'    
 --14	Apostrophe
+  select * from nobel
+  where winner = 'EUGENE O''NEILL'
 --15	Knights of the realm
+  select winner, yr, subject from nobel
+  where winner like 'Sir%'
+  order by yr desc, winner
 --16	Chemistry and Physics last
+  SELECT winner, subject
+  FROM nobel
+  WHERE yr=1984
+  ORDER BY subject IN ('Physics','Chemistry'),subject,winner
