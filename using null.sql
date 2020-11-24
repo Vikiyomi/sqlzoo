@@ -40,3 +40,5 @@ select dept.name, count(teacher.name)
 from teacher
 right join dept on teacher.dept=dept.id
 group by dept.name
+
+--9. 
